@@ -1,3 +1,4 @@
+// LogInScreen.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -7,6 +8,11 @@ export default function LoginScreen() {
   const [password, setPassword] = useState('••••••••');
   const navigation = useNavigation();
 
+  const handleLogin = () => {
+    // Có thể thêm xác thực ở đây
+    navigation.navigate('Main');
+  };
+
   return (
     <View style={styles.container}>
       {/* Placeholder for carrot icon */}
@@ -14,8 +20,8 @@ export default function LoginScreen() {
         <Text style={styles.iconText}>🥕</Text>
       </View>
 
-      <Text style={styles.title}>Loging</Text>
-      <Text style={styles.subtitle}>Enter your emails and password</Text>
+      <Text style={styles.title}>Login</Text>
+      <Text style={styles.subtitle}>Enter your email and password</Text>
 
       <Text style={styles.label}>Email</Text>
       <TextInput
@@ -37,7 +43,7 @@ export default function LoginScreen() {
         <Text style={styles.forgotPassword}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity>
 
